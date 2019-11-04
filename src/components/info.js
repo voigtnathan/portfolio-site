@@ -13,10 +13,10 @@ export default function info() {
         <span style = {{color : "white"}}>Hello, I'm</span> <br />
         Nate Voigt.
       </div>
-      <div className="h1 code mt-4 mb-3">async {"{"}</div>
+      <div className="h1 code mt-4 mb-3">aboutMe = {"{"}</div>
       <div className="text-muted mx-5 my-4 h3 text-justify info">
-        A Passionate Full Stack Software Engineer, Backend developer, and Digital Strategist.
-        <br /> Solving the world's problems with coffee in one hand while typing with the other.
+       description: A Passionate Full Stack Software Engineer, Backend developer, and Digital Strategist.
+        <br /><br /> howWorks: Solving the world's problems with coffee in one hand while typing with the other.
       </div>
       <div className="h1 code mt-2 mb-3">{"}"}</div>
       <div className="h1 mt-5">

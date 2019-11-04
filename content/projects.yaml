@@ -1,23 +1,11 @@
-- title: Qr-Code-Application
-  subtitle: A new Flutter project
-  link: https://github.com/Mr404Found/Qr-Code-Application
+- title: MyTime Personal Calendar App
+  subtitle: A react calendar project
+  link: https://github.com/voigtnathan/MyTime-Calendar-App
 
-- title: Basic Music
-  subtitle: Basic Music Player That lets you to play music
-  link: https://github.com/Mr404Found/Basic-Music-Player
+- title: Basic Java Server Backend
+  subtitle: Took 3 days to learn the basics of creating a java web server, developed on a four person team.
+  link: https://github.com/Johnman747/PetHotel-Server
 
-- title: Age Calculator
-  subtitle: Get Your Age
-  link: https://github.com/Mr404Found/AgeCalculator
-
-- title: Qr-Code-Application
-  subtitle: A new Flutter project
-  link: https://github.com/Mr404Found/Qr-Code-Application
-
-- title: Qr-Code-Application
-  subtitle: A new Flutter project
-  link: https://github.com/Mr404Found/Qr-Code-Application
-
-- title: Qr-Code-Application
-  subtitle: A new Flutter project
-  link: https://github.com/Mr404Found/Qr-Code-Application
+- title: Redux Sagas Garden
+  subtitle: A basic garden management web all to showcase use of redux sagas.
+  link: https://github.com/paperjoob/redux-saga-garden

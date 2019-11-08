@@ -3,6 +3,7 @@ import React from "react"
 import {
   FaGithub as Github,
   FaEnvelope as Mail,
+  FaLinkedin,
 } from "react-icons/fa"
 
 export default function info() {
@@ -26,6 +27,9 @@ export default function info() {
         </a>
         <a className="mr-5 icon" href="mailto://voigtnathan23@gmail.com">
           <Mail />
+        </a>
+        <a className="mr-5 icon" href="https://www.linkedin.com/in/nate-voigt-42b2b111a">
+          <FaLinkedin/>
         </a>
       </div>
     </div>

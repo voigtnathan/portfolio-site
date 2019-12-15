@@ -13,3 +13,7 @@
 - title: Water Ways
   subtitle: A community driven, mobile first application for mapping, reviewing, and categorizing clean water sources for all. Built by a team of five Prime Digital Academy students.
   link: https://github.com/Johnman747/WaterWays
+
+- title: Text Contrast Detector
+  subtitle: A simple neural network AI that detects the background color of the selected text and then changes the text color for best visibility.
+  link: https://github.com/voigtnathan/color-contract-detector

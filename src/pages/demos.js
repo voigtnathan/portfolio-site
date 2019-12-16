@@ -1,20 +1,23 @@
 import React from "react"
 import "../style.css"
 import Appbar from "../components/appbar"
-import Info from "../components/info"
 import { Helmet } from "react-helmet"
+import TextContrast from "../components/textcontrast";
 
-function index() {
+function Demos() {
+
   return (
-    <div>
+    <div className="container-fluid">
       <Appbar />
-      <Info />
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Hi there! I'm Nate Voigt</title>
+        <title>Projects | Sumanth</title>
       </Helmet>
+      <div id="row">
+        <TextContrast />
+      </div>
     </div>
   )
 }
 
-export default index
+export default Demos;

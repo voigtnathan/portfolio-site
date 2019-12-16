@@ -13,7 +13,7 @@ function Demos() {
         <meta charSet="utf-8" />
         <title>Projects | Sumanth</title>
       </Helmet>
-      <div className="row">
+      <div id="row">
         <TextContrast />
       </div>
     </div>

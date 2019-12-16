@@ -1,16 +1,22 @@
-import React, { Component } from "react"
+import React, { useState, useEffect } from "react"
 import brain from "brain.js";
 import "../../src/style.css";
 
-class TextContrast extends Component {
+function TextContrast() {
+    //useState for instant local state in sync with browser
+    let [hexColor, setHexColor] = useState('#6f42c1');
+    let [textShade, setTextShade] = useState('#000000');
+    //create neural network
+    let network = new brain.NeuralNetwork();
 
-    state = {
-        hexColor: '#6f42c1',
-        textShade: '#000000',
-        rgbObject: {r: 0.44, g: 0.26, b: 0.76}
+    //set new bg color state and call converter to make the info usable for the AI
+    function handleChange(event) {
+        setHexColor(event.target.value);
+        convertRgb(event.target.value);
     }
+
     // converts hexadecimal color code to rgb values
-    convertRgb = (hex) => {
+    function convertRgb(hex) {
         // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
         var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
         hex = hex.replace(shorthandRegex, function (m, r, g, b) {
@@ -18,37 +24,29 @@ class TextContrast extends Component {
         });
 
         let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-
+        //check rgb setup
         console.log(result ? {
             r: Math.round(parseInt(result[1], 16) / 2.55) / 100,
             g: Math.round(parseInt(result[2], 16) / 2.55) / 100,
             b: Math.round(parseInt(result[3], 16) / 2.55) / 100
         } : null)
 
+
+        //convert rgb to object within AI boundaries
         let finalResult = {
             r: Math.round(parseInt(result[1], 16) / 2.55) / 100,
             g: Math.round(parseInt(result[2], 16) / 2.55) / 100,
             b: Math.round(parseInt(result[3], 16) / 2.55) / 100
         }
-        
-       this.getTextColor(finalResult);
-    
-    }
 
-    handleNewColor = (event, propertyName) => {
-        this.setState({
-            [propertyName]: event.target.value
-        }, () => {
-            this.convertRgb(this.state.hexColor);
-        });
-        
+        //call AI
+        getTextColor(finalResult);
+
     }
 
 
-    getTextColor = (rgb) => {
-        // create new neural network
-        const network = new brain.NeuralNetwork();
-
+    function getTextColor(rgb){
+        
         // training neural network
         network.train([
             { input: { r: 0.03, g: 0.7, b: 0.5 }, output: { dark: 1 } },
@@ -72,44 +70,39 @@ class TextContrast extends Component {
             { input: { r: 0, g: 1, b: 1 }, output: { dark: 1 } },
             { input: { r: 1, g: 1, b: 0 }, output: { dark: 1 } },
             { input: { r: 0, g: 0, b: 0 }, output: { light: 1 } },
-            { input: { r: 1, g: 1, b: 1 }, output: { dark: 1 } }
+            { input: { r: 1, g: 1, b: 1 }, output: { dark: 1 } },
+            { input: { r: 0.5, g: 0, b: 0.5 }, output: { light: 1 } },
+            { input: { r: 0.5, g: 0.5, b: 0 }, output: { light: 1 } },
         ]);
+        //let AI guess based on training
         let result = brain.likely(rgb, network);
 
-        console.log(result + ' XXXXXXXXXXXXXXXXXXXX  result')
-
         let newTextShade;
-
         if (result === "dark") {
             newTextShade = "#000000"
         } else {
             newTextShade = "#fff"
         };
-
-        // const newTextShade = result === "dark" ? "#000000" : "#fff";
-        console.log(newTextShade + ' XXXXXXXXXXXXXXXXX   NEW')
-
-        // this.setTextShade(newTextShade);
-        this.setState({
-            textShade: newTextShade
-        })
+        //set new text shade state
+        setTextShade(newTextShade);
     }
 
-    render() {
-        return (
-            <div>
-                <div id="demos">
-                    <input type="color" label="Pick a color!" value={this.state.hexColor}
-                        onChange={(event) => this.handleNewColor(event, 'hexColor')} />
-                </div>
-                <div id="demos">
-                    <div id="panel" style={{ backgroundColor: this.state.hexColor }}>
-                        <h1 className="title-contrast" style={{ color: this.state.textShade }}>Text Matches To Background!</h1>
-                    </div>
+
+    return (
+        <div>
+            <div id="demos">
+                <input type="color" value={hexColor} 
+                    onChange={handleChange} /><p>Pick a color! </p>
+            </div>
+            <div id="demos">
+                <div id="panel" style={{ backgroundColor: hexColor }}>
+                    <h1 className="title-contrast" style={{ color: textShade }}>
+                        Text Matches To Background!
+                            </h1>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default TextContrast;

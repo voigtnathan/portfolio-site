@@ -1,97 +1,127 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+## How to run
+- visit natevoigt.org
+- fork repo
+- run npm install
+- run gatsby develop
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## Code that didn't work
+-this is for my own personal reference but feel free to read through it all, myabe you'll save yourself some time!
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+- text contrast detector as a class component(uses hook in class component)
 
-## 🚀 Quick start
+<!-- 
+// import React, { Component } from "react"
+// import brain from "brain.js";
+// import "../../src/style.css";
 
-1.  **Create a Gatsby site.**
+// class TextContrast extends Component {
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+//     state = {
+//         hexColor: '#6f42c1',
+//         textShade: '#000000',
+//         rgbObject: {r: 0.44, g: 0.26, b: 0.76}
+//     }
+//     // converts hexadecimal color code to rgb values
+//     convertRgb = (hex) => {
+//         // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+//         var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+//         hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+//             return r + r + g + g + b + b;
+//         });
 
-    ```sh
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+//         let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
-1.  **Start developing.**
+//         console.log(result ? {
+//             r: Math.round(parseInt(result[1], 16) / 2.55) / 100,
+//             g: Math.round(parseInt(result[2], 16) / 2.55) / 100,
+//             b: Math.round(parseInt(result[3], 16) / 2.55) / 100
+//         } : null)
 
-    Navigate into your new site’s directory and start it up.
+//         let finalResult = {
+//             r: Math.round(parseInt(result[1], 16) / 2.55) / 100,
+//             g: Math.round(parseInt(result[2], 16) / 2.55) / 100,
+//             b: Math.round(parseInt(result[3], 16) / 2.55) / 100
+//         }
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
+//        this.getTextColor(finalResult);
 
-1.  **Open the source code and start editing!**
+//     }
 
-    Your site is now running at `http://localhost:8000`!
+//     handleNewColor = (event, propertyName) => {
+//         this.setState({
+//             [propertyName]: event.target.value
+//         }, () => {
+//             this.convertRgb(this.state.hexColor);
+//         });
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+//     }
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🧐 What's inside?
+//     getTextColor = (rgb) => {
+//         // create new neural network
+//         const network = new brain.NeuralNetwork();
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+//         // training neural network
+//         network.train([
+//             { input: { r: 0.03, g: 0.7, b: 0.5 }, output: { dark: 1 } },
+//             { input: { r: 0.16, g: 0.09, b: 0.2 }, output: { light: 1 } },
+//             { input: { r: 0.5, g: 0.5, b: 1.0 }, output: { light: 1 } },
+//             { input: { r: 0.0431, g: 0.3458, b: 0.2627 }, output: { light: 1 } },
+//             { input: { r: 0.9333, g: 0.8784, b: 0.5686 }, output: { dark: 1 } },
+//             { input: { r: 0.3490, g: 0.2705, b: 0.8901 }, output: { light: 1 } },
+//             { input: { r: 0.3843, g: 0.4862, b: 0.0941 }, output: { light: 1 } },
+//             { input: { r: 0.2274, g: 0.0078, b: 0.8627 }, output: { light: 1 } },
+//             { input: { r: 0.3764, g: 0.3843, b: 0.6941 }, output: { light: 1 } },
+//             { input: { r: 0.2862, g: 0.5960, b: 0.0470 }, output: { light: 1 } },
+//             { input: { r: 0.6549, g: 0.7019, b: 0.7098 }, output: { dark: 1 } },
+//             { input: { r: 0.0431, g: 0.0666, b: 0.4862 }, output: { light: 1 } },
+//             { input: { r: 0.8431, g: 0.4431, b: 0.2627 }, output: { light: 1 } },
+//             { input: { r: 0.6, g: 0.4, b: 0.2 }, output: { dark: 1 } },
+//             { input: { r: 0, g: 0, b: 1 }, output: { light: 1 } },
+//             { input: { r: 1, g: 0, b: 0 }, output: { dark: 1 } },
+//             { input: { r: 0, g: 1, b: 0 }, output: { dark: 1 } },
+//             { input: { r: 1, g: 0, b: 1 }, output: { dark: 1 } },
+//             { input: { r: 0, g: 1, b: 1 }, output: { dark: 1 } },
+//             { input: { r: 1, g: 1, b: 0 }, output: { dark: 1 } },
+//             { input: { r: 0, g: 0, b: 0 }, output: { light: 1 } },
+//             { input: { r: 1, g: 1, b: 1 }, output: { dark: 1 } }
+//         ]);
+//         let result = brain.likely(rgb, network);
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+//         console.log(result + ' XXXXXXXXXXXXXXXXXXXX  result')
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+//         let newTextShade;
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+//         if (result === "dark") {
+//             newTextShade = "#000000"
+//         } else {
+//             newTextShade = "#fff"
+//         };
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+//         // const newTextShade = result === "dark" ? "#000000" : "#fff";
+//         console.log(newTextShade + ' XXXXXXXXXXXXXXXXX   NEW')
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+//         // this.setTextShade(newTextShade);
+//         this.setState({
+//             textShade: newTextShade
+//         })
+//     }
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+//     render() {
+//         return (
+//             <div>
+//                 <div id="demos">
+//                     <input type="color" label="Pick a color!" value={this.state.hexColor}
+//                         onChange={(event) => this.handleNewColor(event, 'hexColor')} />
+//                 </div>
+//                 <div id="demos">
+//                     <div id="panel" style={{ backgroundColor: this.state.hexColor }}>
+//                         <h1 className="title-contrast" style={{ color: this.state.textShade }}>Text Matches To Background!</h1>
+//                     </div>
+//                 </div>
+//             </div>
+//         )
+//     }
+// }
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+// export default TextContrast; -->

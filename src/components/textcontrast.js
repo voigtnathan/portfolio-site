@@ -45,8 +45,8 @@ function TextContrast() {
     }
 
 
-    function getTextColor(rgb){
-        
+    function getTextColor(rgb) {
+
         // training neural network
         network.train([
             { input: { r: 0.03, g: 0.7, b: 0.5 }, output: { dark: 1 } },
@@ -91,8 +91,14 @@ function TextContrast() {
     return (
         <div>
             <div id="demos">
-                <input type="color" value={hexColor} 
-                    onChange={handleChange} /><p>Pick a color! </p>
+                <p>Pick a color!
+                     <br />
+                    The Neural Network will pick the right shade of text!
+                    </p>
+            </div>
+            <div id="demos">
+                <input type="color" value={hexColor}
+                    onChange={handleChange} />
             </div>
             <div id="demos">
                 <div id="panel" style={{ backgroundColor: hexColor }}>

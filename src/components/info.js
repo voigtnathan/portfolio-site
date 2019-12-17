@@ -12,7 +12,7 @@ export default function info() {
       <div className="my-5"></div>
       <div className="display-3" style={{ color: "#260339" }}>
         <span style = {{color : "white"}}>Hello, I'm</span> <br />
-        Nate Voigt.
+       Hi there! I'm Nate Voigt.
       </div>
       <div className="h1 mt-5">
         

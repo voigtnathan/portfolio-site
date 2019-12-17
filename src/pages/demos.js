@@ -11,7 +11,7 @@ function Demos() {
       <Appbar />
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Projects | Sumanth</title>
+        <title>Projects | Demos</title>
       </Helmet>
       <div id="row">
         <TextContrast />

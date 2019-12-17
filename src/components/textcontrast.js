@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
-import brain from "brain.js";
+import React, { useState } from "react";
+import brain from "../vendors/brain.min.js";
 import "../../src/style.css";
 
-function TextContrast() {
+export default function TextContrast() {
     //useState for instant local state in sync with browser
     let [hexColor, setHexColor] = useState('#6f42c1');
     let [textShade, setTextShade] = useState('#000000');
@@ -110,5 +110,3 @@ function TextContrast() {
         </div>
     )
 }
-
-export default TextContrast;

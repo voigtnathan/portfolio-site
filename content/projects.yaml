@@ -1,9 +1,9 @@
 - title: MyTime Personal Calendar App
-  subtitle: A react calendar project
+  subtitle: A react calendar project, designed to help users focus on the now.
   link: https://github.com/voigtnathan/MyTime-Calendar-App
 
 - title: Basic Java Server Backend
-  subtitle: Took 3 days to learn the basics of creating a java web server, developed on a four person team.
+  subtitle: A small java server project, I'm working on learning languages outside of my current stack.
   link: https://github.com/Johnman747/PetHotel-Server
 
 - title: Redux Sagas Garden

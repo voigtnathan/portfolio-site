@@ -108,9 +108,9 @@ export default function TextContrast() {
             </div>
             <div id="demos">
                 <div id="panel" style={{ backgroundColor: hexColor }}>
-                    <h1 className="title-contrast" style={{ color: textShade }}>
+                    <h2 className="title-contrast " style={{ color: textShade }}>
                         Text Matches To Background!
-                            </h1>
+                            </h2>
                 </div>
             </div>
         </div>

@@ -155,7 +155,7 @@ class Game extends Component {
         let boardOut = this.placeNewRandom(boardIn);///change later this is just for testing
         return boardOut;
     };
-    
+
     moveDown = (boardIn) => {
         let boardOut = this.placeNewRandom(boardIn);///change later this is just for testing
         return boardOut;
@@ -191,7 +191,7 @@ class Game extends Component {
                                     <tr key={i}>
                                         {
                                             row.map((tile, j) =>
-                                                <td id='tile' key={j}>{tile}</td>
+                                                <td className={`tile color-${tile.toString()}`} color key={j}>{tile}</td>
                                             )
                                         }
                                     </tr>

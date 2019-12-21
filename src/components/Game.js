@@ -78,29 +78,93 @@ class Game extends Component {
         return board;
     }
 
+    isGameOver = (board) => {
+        return ((this.getAllBlankSpaces(board)).length < 1 ? true : false);
+    }
+
+
+    //checks the previous value of the board against the current value of the board
+    checkBoard = (oldBoard, newBoard) => {
+        return (JSON.stringify(newBoard) !== JSON.stringify(oldBoard)) ? true : false;
+    }
 
     //intakes direction of movement and checks for game over
     move = (direction) => {
         console.log('Moved ' + direction);
+        if (direction === 'left') {
+            console.log('Game over???  ' + this.isGameOver(this.state.gameBoard));
+            let movedLeft = this.moveLeft(this.state.gameBoard)
+            if (this.checkBoard(this.state.gameBoard, movedLeft.gameBoard)) {
+                //  const leftWithRandom = this.placeNewRandom(movedLeft.gameBoard);
+                console.log("SUCCESSSS");
+                this.setState({
+                    gameBoard: movedLeft,
+                    score: 0,
+                    gameOver: false,
+
+                });
+            }
+        }else if (direction === 'up') {
+            console.log('Game over???  ' + this.isGameOver(this.state.gameBoard));
+            let movedUp = this.moveUp(this.state.gameBoard)
+            if (this.checkBoard(this.state.gameBoard, movedUp.gameBoard)) {
+                //  const leftWithRandom = this.placeNewRandom(movedLeft.gameBoard);
+                console.log("SUCCESSSS");
+                this.setState({
+                    gameBoard: movedUp,
+                    score: 0,
+                    gameOver: false,
+
+                });
+            }
+        }else if (direction === 'down') {
+            console.log('Game over???  ' + this.isGameOver(this.state.gameBoard));
+            let movedDown = this.moveDown(this.state.gameBoard)
+            if (this.checkBoard(this.state.gameBoard, movedDown.gameBoard)) {
+                //  const leftWithRandom = this.placeNewRandom(movedLeft.gameBoard);
+                console.log("SUCCESSSS");
+                this.setState({
+                    gameBoard: movedDown,
+                    score: 0,
+                    gameOver: false,
+
+                });
+            }
+        }else if(direction === 'right') {
+            console.log('Game over???  ' + this.isGameOver(this.state.gameBoard));
+            let movedRight = this.moveRight(this.state.gameBoard)
+            if (this.checkBoard(this.state.gameBoard, movedRight.gameBoard)) {
+                //  const leftWithRandom = this.placeNewRandom(movedLeft.gameBoard);
+                console.log("SUCCESSSS");
+                this.setState({
+                    gameBoard: movedRight,
+                    score: 0,
+                    gameOver: false,
+
+                });
+            }
+        }
     }
 
+    moveLeft = (boardIn) => {
+        let boardOut = this.placeNewRandom(boardIn);///change later this is just for testing
+        return boardOut;
+    };
 
+    moveUp = (boardIn) => {
+        let boardOut = this.placeNewRandom(boardIn);///change later this is just for testing
+        return boardOut;
+    };
+    
+    moveDown = (boardIn) => {
+        let boardOut = this.placeNewRandom(boardIn);///change later this is just for testing
+        return boardOut;
+    };
 
-    // moveUp = () => {
-    //     console.log("UP");
-    // }
-
-    // moveDown = () => {
-    //     console.log("DOWN");
-    // }
-
-    // moveLeft = () => {
-    //     console.log("LEFT");
-    // }
-
-    // moveRight = () => {
-    //     console.log("RIGHT");
-    // }
+    moveRight = (boardIn) => {
+        let boardOut = this.placeNewRandom(boardIn);///change later this is just for testing
+        return boardOut;
+    };
 
     componentDidMount() {
         this.createBoard();

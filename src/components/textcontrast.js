@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import brain from "../vendors/brain.min.js";
 import "../../src/style.css";
+import { CirclePicker } from 'react-color';
+
 
 export default function TextContrast() {
     //useState for instant local state in sync with browser
@@ -10,9 +12,9 @@ export default function TextContrast() {
     let network = new brain.NeuralNetwork();
 
     //set new bg color state and call converter to make the info usable for the AI
-    function handleChange(event) {
-        setHexColor(event.target.value);
-        convertRgb(event.target.value);
+    function handleChange(color) {
+        setHexColor(color.hex);
+        convertRgb(color.hex);
     }
 
     // converts hexadecimal color code to rgb values
@@ -97,8 +99,12 @@ export default function TextContrast() {
                     </p>
             </div>
             <div id="demos">
-                <input type="color" value={hexColor}
-                    onChange={handleChange} />
+                <CirclePicker
+                    color={hexColor}
+                    onChange={handleChange}
+                />
+                {/* <input type="color" value={hexColor}
+                    onChange={handleChange} /> */}
             </div>
             <div id="demos">
                 <div id="panel" style={{ backgroundColor: hexColor }}>

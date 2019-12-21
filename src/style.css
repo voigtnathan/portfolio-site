@@ -46,19 +46,19 @@ body {
 table {
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 5px auto;
+  border-collapse: separate;
+  border-spacing: 5px;
 }
 tbody {
   justify-content: center;
   align-items: center;
 }
-.tile {
+#tile {
   height: 100px;
   width: 100px;
   background-color: lightgray;
   border-radius: 5px;
-  /* display: flex;
-  flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
   text-align: center;

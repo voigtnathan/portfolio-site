@@ -81,7 +81,7 @@ class Game extends Component {
 
     //intakes direction of movement and checks for game over
     move = (direction) => {
-        console.log('Moved '+direction);
+        console.log('Moved ' + direction);
     }
 
 
@@ -114,11 +114,10 @@ class Game extends Component {
                     <button className="social" onClick={() => this.createBoard()}>NEW GAME</button>
                 </div>
                 <div id="demos">
-          <button onClick={() => {this.move('up')}}>Up</button>
-          <button onClick={() => {this.move('right')}}>Right</button>
-          <button onClick={() => {this.move('down')}}>Down</button>
-          <button onClick={() => {this.move('left')}}>Left</button>
-        
+                    <button onClick={() => { this.move('left') }}>Left</button>
+                    <button onClick={() => { this.move('up') }}>Up</button>
+                    <button onClick={() => { this.move('down') }}>Down</button>
+                    <button onClick={() => { this.move('right') }}>Right</button>
                 </div>
                 <div id="demos">
                     <table>
@@ -128,7 +127,7 @@ class Game extends Component {
                                     <tr key={i}>
                                         {
                                             row.map((tile, j) =>
-                                                <td className='tile' key={j}>{tile}</td>
+                                                <td id='tile' key={j}>{tile}</td>
                                             )
                                         }
                                     </tr>

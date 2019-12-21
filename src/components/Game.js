@@ -100,7 +100,7 @@ class Game extends Component {
                     if (this.isGameOver(leftRandom)) {
                         this.setState({ gameBoard: leftRandom, gameOver: true, score: this.state.score, message: 'Game Over! Please start a new game.' })
                     } else {
-                        this.setState({ gameBoard: leftRandom, gameOver: false, score: this.state.score += leftRandom.score, message: null })
+                        this.setState({ gameBoard: leftRandom, gameOver: false, score: this.state.score += movedLeft.score, message: null })
                     }
                     console.log("SUCCESSSS");
                 }
@@ -113,31 +113,31 @@ class Game extends Component {
                     if (this.isGameOver(upRandom)) {
                         this.setState({ gameBoard: upRandom, gameOver: true, score: this.state.score, message: 'Game Over! Please start a new game.' })
                     } else {
-                        this.setState({ gameBoard: upRandom, gameOver: false, score: this.state.score += upRandom.score, message: null })
+                        this.setState({ gameBoard: upRandom, gameOver: false, score: this.state.score += movedUp.score, message: null })
                     }
                     console.log("SUCCESSSS");
                 }
             } else if (direction === 'down') {
                 console.log('Game over???  ' + this.isGameOver(this.state.gameBoard));
                 let movedDown = this.moveDown(this.state.gameBoard)
-                if (this.checkBoard(this.state.gameBoard, movedDown.gameBoard)) {
+                if (this.checkBoard(this.state.gameBoard, movedDown.boardOut)) {
                     let downRandom = this.placeNewRandom(movedDown.boardOut);
                     if (this.isGameOver(downRandom)) {
                         this.setState({ gameBoard: downRandom, gameOver: true, score: this.state.score, message: 'Game Over! Please start a new game.' })
                     } else {
-                        this.setState({ gameBoard: downRandom, gameOver: false, score: this.state.score += downRandom.score, message: null })
+                        this.setState({ gameBoard: downRandom, gameOver: false, score: this.state.score += movedDown.score, message: null })
                     }
                     console.log("SUCCESSSS");
                 }
             } else if (direction === 'right') {
                 console.log('Game over???  ' + this.isGameOver(this.state.gameBoard));
                 let movedRight = this.moveRight(this.state.gameBoard)
-                if (this.checkBoard(this.state.gameBoard, movedRight.gameBoard)) {
+                if (this.checkBoard(this.state.gameBoard, movedRight.boardOut)) {
                     let rightRandom = this.placeNewRandom(movedRight.boardOut);
                     if (this.isGameOver(rightRandom)) {
                         this.setState({ gameBoard: rightRandom, gameOver: true, score: this.state.score, message: 'Game Over! Please start a new game.' })
                     } else {
-                        this.setState({ gameBoard: rightRandom, gameOver: false, score: this.state.score += rightRandom.score, message: null })
+                        this.setState({ gameBoard: rightRandom, gameOver: false, score: this.state.score += movedRight.score, message: null })
                     }
                     console.log("SUCCESSSS");
                 }
@@ -150,7 +150,7 @@ class Game extends Component {
         let boardOut = [];
         let score = 0;
 
-        // Shift all numbers to the left
+        // Shift all numbers to bottom
         for (let r = 0; r < rotatedRight.length; r++) {
             let row = [];
             for (let c = rotatedRight[r].length - 1; c >= 0; c--) {
@@ -160,7 +160,7 @@ class Game extends Component {
             boardOut.push(row);
         }
 
-        // Combine numbers and shift to left
+        // Combine numbers and shift to bottom
         for (let r = 0; r < boardOut.length; r++) {
             for (let c = 0; c < boardOut.length; c++) {
                 if (boardOut[r][c] > 0 && boardOut[r][c] === boardOut[r][c + 1]) {

@@ -78,6 +78,30 @@ class Game extends Component {
         return board;
     }
 
+
+    //intakes direction of movement and checks for game over
+    move = (direction) => {
+        console.log('Moved '+direction);
+    }
+
+
+
+    // moveUp = () => {
+    //     console.log("UP");
+    // }
+
+    // moveDown = () => {
+    //     console.log("DOWN");
+    // }
+
+    // moveLeft = () => {
+    //     console.log("LEFT");
+    // }
+
+    // moveRight = () => {
+    //     console.log("RIGHT");
+    // }
+
     componentDidMount() {
         this.createBoard();
     }
@@ -87,7 +111,14 @@ class Game extends Component {
         return (
             <div>
                 <div id="demos">
-                    <button className='social' onClick={() => this.createBoard()}>NEW GAME</button>
+                    <button className="social" onClick={() => this.createBoard()}>NEW GAME</button>
+                </div>
+                <div id="demos">
+          <button onClick={() => {this.move('up')}}>Up</button>
+          <button onClick={() => {this.move('right')}}>Right</button>
+          <button onClick={() => {this.move('down')}}>Down</button>
+          <button onClick={() => {this.move('left')}}>Left</button>
+        
                 </div>
                 <div id="demos">
                     <table>

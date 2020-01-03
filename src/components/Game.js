@@ -79,7 +79,16 @@ class Game extends Component {
     }
 
     isGameOver = (board) => {
-        return ((this.getAllBlankSpaces(board)).length < 1 ? true : false);
+        //checks if there are any possible moves before gameover, old method was gameover if the board was full
+        let movesLeft = [
+            this.checkBoard(board, this.moveRight(board).board),
+            this.checkBoard(board, this.moveDown(board).board),
+            this.checkBoard(board, this.moveUp(board).board),
+            this.checkBoard(board, this.moveLeft(board).board)
+          ];
+          
+          return (movesLeft.includes(true)) ? false : true;
+        // return ((this.getAllBlankSpaces(board)).length < 1 ? true : false);
     }
 
 

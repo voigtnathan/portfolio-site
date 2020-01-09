@@ -3,4 +3,5 @@ test/unit/*.js
 test/e2e/*.js
 **.min.js
 dist/
+src/
 __coverage__/

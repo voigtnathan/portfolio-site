@@ -15,7 +15,7 @@ function Contact() {
                 <title>Projects | Past</title>
             </Helmet>
             <div id="contact">
-            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form name="contact" method="post" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="contact" />
                 <div className="field half first">

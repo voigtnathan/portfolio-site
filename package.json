@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "portfolio-site",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Portfolio site built on a simple gatsby framework and run through netlify",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Nate Voigt",
   "dependencies": {
     "bindings": "^1.5.0",
     "bootstrap": "^4.3.1",
